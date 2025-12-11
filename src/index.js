@@ -3,9 +3,18 @@ import dotenv from "dotenv";
 import connectDB from './db/index.js';
 dotenv.config();
 
-const app=express();
+
 
 connectDB()
+.then(()=>{
+    app.listen(port, ()=>{
+        console.log(`🚀 Server running at http://localhost:${port}`);
+    })
+})
+.catch((err)=>{
+    console.log(`connection to DB failed : error is :- ${err}`);
+    
+})
 
 app.get('/',(req,res)=>{
     res.send('server is Live!');
@@ -13,6 +22,3 @@ app.get('/',(req,res)=>{
 
 const port=process.env.PORT||3000;
 
-app.listen(port, ()=>{
-    console.log(`🚀 Server running at http://localhost:${port}`);
-})

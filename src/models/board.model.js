@@ -1,17 +1,17 @@
 import mongoose, { Schema } from "mongoose"
 
 const boardSchema= new Schema({
-    Name:{
+    title:{
         type: String,
         required:true,
     },
-    Description:{
+    description:{
         type: String,
         required: true,
     },
-    OwnerId:{
-        type: Number,
-        ref: "admin",
+    ownerId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
         required:true,
     }
 },{timestamps:true})
