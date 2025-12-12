@@ -12,3 +12,10 @@ app.use(express.json({limit: "16kb"}));
 app.use(express.urlencoded({extended: true, limit:"16kb"}));
 app.use(express.static("public"))
 app.use(cookieParser());
+
+import boardRouter from './routes/board.router';
+import userRouter from './routes/user.router';
+
+
+app.use('/api/v1/user/', userRouter);
+app.use('/api/v1/board/', boardRouter);

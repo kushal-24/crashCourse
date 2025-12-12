@@ -11,7 +11,7 @@ router.route("/logout").post(verifyJWT,userLogout);
 router.route("/changepassword").post(verifyJWT ,changeUserPass);
 router.route("/myprofile").get(verifyJWT ,getUserDetails);
 router.route("/refreshtoken").post(refreshAccessToken);
-router.route("/deleteaccount").delete(deleteUser);
+router.route("/deleteaccount").delete(verifyJWT, deleteUser);
 
 export default router();
 
