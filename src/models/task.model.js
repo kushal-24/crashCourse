@@ -9,6 +9,12 @@ const taskSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    assignees: [
+        {
+            type: mongoose.Schema.type.ObjectId,
+            ref: "User",
+        },
+    ],
     listId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "List",

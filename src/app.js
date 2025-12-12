@@ -15,6 +15,7 @@ app.use(cookieParser());
 
 import boardRouter from './routes/board.router';
 import userRouter from './routes/user.router';
+import taskRouter from './routes/task.router'
 
 
 app.use('/api/v1/user/', userRouter);
